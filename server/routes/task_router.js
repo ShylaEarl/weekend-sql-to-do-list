@@ -2,9 +2,9 @@ const express = require('express');
 const router = express.Router();
 const pool = require('../modules/pool');
 
-// define an object array with dummy data
+// could add an object array with dummy data
 
-//router.get
+//router.get is selecting all tasks from the DB and sending them to the DOM
 router.get('/', (req, res) => {
     let queryText = `SELECT * FROM "tasks";`;
     pool.query(queryText)
@@ -17,7 +17,7 @@ router.get('/', (req, res) => {
     
 });
 
-//router.post
+//router.post is gathering input data from DOM and sending it to be stored in the DB
 router.post('/', (req, res) => {
     console.log('req.body', req.body);
 
@@ -37,7 +37,20 @@ router.post('/', (req, res) => {
     
 });
 
-//router.delete
+//router.delete will remove a list item from the DOM and DB
+router.delete('/:idParam', (req, res) => {
+    console.log('hello from delete', req.params.idParam);
+    
+    let queryText =`DELETE FROM "tasks" WHERE "id" = $1;`;
+    pool.query(queryText, [req.params.idParam]).then((result) => {
+        console.log('Success!', result);
+        res.send(200);
+    }).catch((error) => {
+        console.log(`Error making query ${queryText}`, error);
+        res.sendStatus(500);
+    });
+    
+});
 
 //router.put
 

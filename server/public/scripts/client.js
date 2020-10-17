@@ -8,8 +8,8 @@ function onReady() {
     getTask();
     //add click listeners
     $('#addTask').on('click', postTask);
-    //$(#todoTableBody).on('click', '.deleteButton', deleteTask);
-    // $(#todoTableBody).on('click', '.editTask', editTask);
+    $('#todoTableBody').on('click', '.deleteButton', deleteTask);
+    // $('#todoTableBody').on('click', '.editTask', editTask);
 }
 
 //get task data from server
@@ -55,13 +55,24 @@ function postTask(){
         $('#track').val(''),
         $('#rank').val(''),
         $('#published').val('')
-        getTask();
+        getTask(); //updating task list on DOM
     });
 }
 
-//function deleteTask(){
-
-//}
+//deleting task from DOM and DB
+function deleteTask(){
+    console.log('in deleteTask');
+    let taskId = $(this).data('id');
+    $.ajax({
+        method: 'DELETE',
+        url: `/taskList/${taskId}` 
+    }).then( function(response){
+        console.log(response);
+        getTask();
+    }).catch(function(error){
+        console.log('error', error);
+    });
+}
 
 //function editTask(){
 
