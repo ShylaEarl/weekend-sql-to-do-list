@@ -9,7 +9,7 @@ function onReady() {
     //add click listeners
     $('#addTask').on('click', postTask);
     $('#todoTableBody').on('click', '.deleteButton', deleteTask);
-    // $('#todoTableBody').on('click', '.editTask', editTask);
+    $('#todoTableBody').on('click', '.completedButton', editTask);
 }
 
 //get task data from server
@@ -27,16 +27,13 @@ function getTask(){
                     <td>${response[i].name}</td>
                     <td>${response[i].task}</td>
                     <td>${response[i].date}</td>
-                    <td>${response[i].completed}</td>
-                    <td><button data-id=${response[i].id} class=deleteButton>Delete</button></td>
+                    <td><button data-id=${response[i].id} class='completedButton'>Completed</button></td> 
+                    <td><button data-id=${response[i].id} class='deleteButton'>Delete</button></td>
                 </tr>
             `);
         }    
     });
 }
-
-//<td><button data-id=${response[i].id} data-direction='up' class='completed'>Completed</button>
-//<button data-id=${response[i].id} data-direction='down' class='rankDown'>DOWN</button></td>
 
 //adding new task to DB and DOM
 function postTask(){
@@ -44,17 +41,15 @@ function postTask(){
         name: $('#name').val(),
         task: $('#task').val(),
         date: $('#date').val(),
-        completed: $('#completed').val()
     }
     $.ajax({
         method: 'POST',
         url: '/taskList',
         data: taskListObject
     }).then( function (response) {
-        $('#artist').val(''),
-        $('#track').val(''),
-        $('#rank').val(''),
-        $('#published').val('')
+        $('#name').val(''),
+        $('#task').val(''),
+        $('#date').val(''),
         getTask(); //updating task list on DOM
     });
 }
@@ -74,6 +69,27 @@ function deleteTask(){
     });
 }
 
-//function editTask(){
+function editTask(){
+    let taskCompleted = $(this).data('id'); //was direction should it be id? or completedButton?
+    let taskId =$(this).data('id');
+    console.log('clicked', taskCompleted, taskId);
 
-//}
+    changeColor();
+
+    $.ajax({
+        method: 'PUT',
+        url: `/taskList/completed/${taskId}`,
+        data: {direction: taskCompleted}  //here? {completed: taskCompleted}
+    }).then(function(response){
+        console.log('response', response);
+        //get request
+        getTask();
+    }). catch(function(error){
+        console.log('error in put', error);
+    });
+}
+
+function changeColor(){
+    
+}
+

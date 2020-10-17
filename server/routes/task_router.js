@@ -24,7 +24,6 @@ router.post('/', (req, res) => {
     let name = req.body.name;
     let task = req.body.task;
     let date = req.body.date;
-    let completed = req.body.completed;
 
     let queryText = `INSERT INTO "tasks" ("name", "task", "date")
     VALUES('${name}', '${task}', '${date}');`;
@@ -53,5 +52,24 @@ router.delete('/:idParam', (req, res) => {
 });
 
 //router.put
+router.put('/completed/:idParam', (req, res) => {
+    console.log('in put reqest', req.body.completed, req.params.idParam);
+
+    //create SQL query
+    let queryText = '';
+    if(req.body.completed === "up"){
+        queryText = `UPDATE "tasks" SET "rank" = "rank"+1 WHERE "id" = ${req.params.idParam};`;
+    } else {
+        queryText = `UPDATE "songs" SET "rank" = "rank"-1 WHERE "id" = ${req.params.idParam};`;
+    }
+   
+    pool.query(queryText).then((result) => {
+        console.log('result from put', result);
+        res.sendStatus(200);
+    }).catch((error) => {
+        console.log('error in put', error);
+        res.sendStatus(500);
+    });
+});
 
 module.exports = router;
