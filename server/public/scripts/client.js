@@ -4,9 +4,9 @@ $(document).ready(onReady);
 
 function onReady() {
     console.log('JQ');
-    //on page load add task list
+    //add task list on page load
     getTask();
-    // //add click listeners
+    //add click listeners
     $('#addTask').on('click', postTask);
     //$(#todoTableBody).on('click', '.deleteButton', deleteTask);
     // $(#todoTableBody).on('click', '.editTask', editTask);
@@ -14,7 +14,7 @@ function onReady() {
 
 //get task data from server
 function getTask(){
-    //$("#todoTableBody").empty();
+    $("#todoTableBody").empty();
     $.ajax({
         method: 'GET',
         url: '/taskList'
@@ -38,6 +38,7 @@ function getTask(){
 //<td><button data-id=${response[i].id} data-direction='up' class='completed'>Completed</button>
 //<button data-id=${response[i].id} data-direction='down' class='rankDown'>DOWN</button></td>
 
+//adding new task to DB and DOM
 function postTask(){
     let taskListObject = {
         name: $('#name').val(),

@@ -18,6 +18,24 @@ router.get('/', (req, res) => {
 });
 
 //router.post
+router.post('/', (req, res) => {
+    console.log('req.body', req.body);
+
+    let name = req.body.name;
+    let task = req.body.task;
+    let date = req.body.date;
+    let completed = req.body.completed;
+
+    let queryText = `INSERT INTO "tasks" ("name", "task", "date")
+    VALUES('${name}', '${task}', '${date}');`;
+    pool.query(queryText).then((result) => {
+        res.sendStatus(200);
+    }).catch((error) => {
+        console.log(error);
+        res.sendStatus(500);
+    });
+    
+});
 
 //router.delete
 
