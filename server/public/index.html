@@ -10,6 +10,40 @@
 </head>
 
 <body>
-    
+    <h1>To Do List</h1>
+
+    <h2>Add New Items to Your List</h2>
+    <!-- create task here -->
+    <div id="addPlayer">
+        <label for="name">Name:</label>
+        <input type="text" id="name"/>
+
+        <label for="task">Task:</label>
+        <input type="text" id="task"/>
+
+        <label for="date">Date:</label>
+        <input type="number" id="date"/>
+
+        <button id="addTask">Add Task</button>
+    </div>
+    <br></br>
+
+    <h2>To Do Items</h2>
+    <table id="tableWrapper">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Task</th>
+                <th>Date</th>
+                <th>Completed</th>
+                <!-- <th>Delete</th> may or may not add this here-->
+                <!-- <th>Update</th> may or may not need this -->
+            </tr>
+        </thead>
+        <tbody id="todoTableBody">
+        <!-- append task list here -->
+        </tbody>
+    </table>
+
 </body>
 </html>
