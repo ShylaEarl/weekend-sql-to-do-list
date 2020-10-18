@@ -29,7 +29,7 @@ function getTask(){
                         <td>${response[i].name}</td>
                         <td>${response[i].task}</td>
                         <td>${response[i].date.slice(0,10)}</td>
-                        <td><td>
+                        <td>Task Completed!<td>
                         <td><button data-id=${response[i].id} class='deleteButton'>Delete</button></td>
                     </tr>
                 `);
@@ -47,10 +47,6 @@ function getTask(){
         }    
     });
 }
-
-//<td><input type="checkbox" value=${response[i].completed} class='completedBox'></input></td> 
-//<td><button data-id=${response[i].completed} class='completedButton'>Completed</button><td>
-//<td><span>${element}</span><td>
 
 //adding new task to DB and DOM
 function postTask(){
@@ -86,6 +82,7 @@ function deleteTask(){
     });
 }
 
+//changes boolean default false to true on click event on DOM and DB
 function editTask(){
     let taskId =$(this).data('id');
     console.log('clicked', taskId);

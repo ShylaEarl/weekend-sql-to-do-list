@@ -1,12 +1,12 @@
 body{
-    background-color: plum;
+    background-color: #cccc00;
 }
 
 h1{
     font-family: fantasy;
     text-align:  center;
     border: 1px solid black;
-    background-color: antiquewhite;
+    background-color: #ff99cc;
 }
 
 h2{
@@ -15,7 +15,7 @@ h2{
 }
 
 .taskCompleted{
-    background-color: antiquewhite;
+    background-color: #ff99cc;
 }
 
 .center{
@@ -26,14 +26,15 @@ h2{
 table, td{
     width: auto;
     border: 1px solid black;
-    height: 20px;
+    height: 40px;
     text-align: left;
     border-collapse: collapse;
-    padding: 3px;
+    padding: 5px;
+    font-size: large;
 }
 
 th{
     text-align: center;
     padding: 3px;
-    background-color: antiquewhite;
+    background-color: #ff99cc;
 }
