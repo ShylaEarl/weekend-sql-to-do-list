@@ -22,11 +22,12 @@ function getTask(){
         console.log('in client get request', response);
         // append data to DOM
         for (let i = 0; i < response.length; i++) {
+            let date = response[i].date.slice(0,10);
             $('#todoTableBody').append(`
                 <tr>
                     <td>${response[i].name}</td>
                     <td>${response[i].task}</td>
-                    <td>${response[i].date}</td>
+                    <td>${date}</td>
                     <td><button data-id=${response[i].id} class='completedButton'>Completed</button></td> 
                     <td><button data-id=${response[i].id} class='deleteButton'>Delete</button></td>
                 </tr>
@@ -90,6 +91,6 @@ function editTask(){
 }
 
 function changeColor(){
-    
+
 }
 

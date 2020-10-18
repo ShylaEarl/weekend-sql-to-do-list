@@ -26,8 +26,8 @@ router.post('/', (req, res) => {
     let date = req.body.date;
 
     let queryText = `INSERT INTO "tasks" ("name", "task", "date")
-    VALUES('${name}', '${task}', '${date}');`;
-    pool.query(queryText).then((result) => {
+    VALUES($1, $2, $3);`; //'${name}', '${task}', '${date}' add back in place of $1-$3 to unsanitize data
+    pool.query(queryText, [name, task, date]).then((result) => { //take out array to unsanitize data
         res.sendStatus(200);
     }).catch((error) => {
         console.log(error);
@@ -37,13 +37,13 @@ router.post('/', (req, res) => {
 });
 
 //router.delete will remove a list item from the DOM and DB
-router.delete('/:idParam', (req, res) => {
+router.delete('/:idParam', (req, res) => { //:id or :idParam
     console.log('hello from delete', req.params.idParam);
-    
+    let taskId =req.params.idParam
     let queryText =`DELETE FROM "tasks" WHERE "id" = $1;`;
-    pool.query(queryText, [req.params.idParam]).then((result) => {
-        console.log('Success!', result);
-        res.send(200);
+    pool.query(queryText, [taskId]).then((result) => {
+        console.log('Success!');
+        res.sendStatus(200);
     }).catch((error) => {
         console.log(`Error making query ${queryText}`, error);
         res.sendStatus(500);
@@ -55,15 +55,13 @@ router.delete('/:idParam', (req, res) => {
 router.put('/completed/:idParam', (req, res) => {
     console.log('in put reqest', req.body.completed, req.params.idParam);
 
+    let taskId = req.params.idParam;
+    let finishedTask = req.body.completedStatus;
+
     //create SQL query
-    let queryText = '';
-    if(req.body.completed === "up"){
-        queryText = `UPDATE "tasks" SET "rank" = "rank"+1 WHERE "id" = ${req.params.idParam};`;
-    } else {
-        queryText = `UPDATE "songs" SET "rank" = "rank"-1 WHERE "id" = ${req.params.idParam};`;
-    }
+    let queryText = `UPDATE "tasks" SET "completed" = $1 WHERE "id" = $2;`;
    
-    pool.query(queryText).then((result) => {
+    pool.query(queryText, [finishedTask, taskId]).then((result) => {
         console.log('result from put', result);
         res.sendStatus(200);
     }).catch((error) => {
