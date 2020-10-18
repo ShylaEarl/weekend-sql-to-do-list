@@ -22,19 +22,35 @@ function getTask(){
         console.log('in client get request', response);
         // append data to DOM
         for (let i = 0; i < response.length; i++) {
-            let date = response[i].date.slice(0,10);
-            $('#todoTableBody').append(`
-                <tr>
-                    <td>${response[i].name}</td>
-                    <td>${response[i].task}</td>
-                    <td>${date}</td>
-                    <td><button data-id=${response[i].id} class='completedButton'>Completed</button></td> 
-                    <td><button data-id=${response[i].id} class='deleteButton'>Delete</button></td>
-                </tr>
-            `);
+            //changes background color and removes task complete button when clicked
+            if(response[i].completed === true){
+                $('#todoTableBody').append(`
+                    <tr class='taskCompleted'>
+                        <td>${response[i].name}</td>
+                        <td>${response[i].task}</td>
+                        <td>${response[i].date.slice(0,10)}</td>
+                        <td><td>
+                        <td><button data-id=${response[i].id} class='deleteButton'>Delete</button></td>
+                    </tr>
+                `);
+            }else {
+                $('#todoTableBody').append(`
+                    <tr class='notCompleted'>
+                        <td>${response[i].name}</td>
+                        <td>${response[i].task}</td>
+                        <td>${response[i].date.slice(0,10)}</td>
+                        <td><button data-id=${response[i].id} class='completedButton'>Click When Complete</button><td>
+                        <td><button data-id=${response[i].id} class='deleteButton'>Delete</button></td>
+                    </tr>
+                `);
+            }
         }    
     });
 }
+
+//<td><input type="checkbox" value=${response[i].completed} class='completedBox'></input></td> 
+//<td><button data-id=${response[i].completed} class='completedButton'>Completed</button><td>
+//<td><span>${element}</span><td>
 
 //adding new task to DB and DOM
 function postTask(){
@@ -71,16 +87,13 @@ function deleteTask(){
 }
 
 function editTask(){
-    let taskCompleted = $(this).data('id'); //was direction should it be id? or completedButton?
     let taskId =$(this).data('id');
-    console.log('clicked', taskCompleted, taskId);
-
-    changeColor();
+    console.log('clicked', taskId);
 
     $.ajax({
         method: 'PUT',
         url: `/taskList/completed/${taskId}`,
-        data: {direction: taskCompleted}  //here? {completed: taskCompleted}
+        data: {completedStatus: true}  
     }).then(function(response){
         console.log('response', response);
         //get request
@@ -90,7 +103,4 @@ function editTask(){
     });
 }
 
-function changeColor(){
-
-}
 

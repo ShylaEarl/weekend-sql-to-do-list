@@ -8,6 +8,6 @@ h1{
     border: 1px solid black;
 }
 
-/* #addTask{
-    align-content: center;
-} */
+.taskCompleted{
+    background-color: antiquewhite;
+}
