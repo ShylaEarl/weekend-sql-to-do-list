@@ -40,7 +40,7 @@ function getTask(){
                         <td>${response[i].task}</td>
                         <td>${response[i].date.slice(0,10)}</td>
                         <td><button data-id=${response[i].id} class='completedButton'>Click When Complete</button><td>
-                        <td><button data-id=${response[i].id} class='deleteButton'>Delete</button></td>
+                        <td><button data-id=${response[i].id} class='deleteButton'>Delete</button></td> 
                     </tr>
                 `);
             }
