@@ -6,7 +6,9 @@ Weekend SQL To-Do List
 
 Duration: Weekend Challenge
 
-Your project description goes here. What problem did you solve? How did you solve it?
+This project allows a user to input tasks into an application and have those tasks listed on the DOM. Once the task is completed the user has the option to click a complete task button to indicate that the task has been completed. The user also has an option to delete the task from the list at any point in time.
+
+The problem solved by this project is the creation of a to do list. This project solves this problem by allowing the user to enter task data which will be displayed on the DOM. The user can interact with listed tasks by clicking a task completed button or delete button. 
 
 ## Prerequisites
 
@@ -17,31 +19,19 @@ Your project description goes here. What problem did you solve? How did you solv
 
 ## Installation
 
-How do you get your application up and running? This is a step by step list for how another developer could get this project up and running. The good target audience in terms of knowledge, would be a fellow Primer from another cohort being able to spin up this project. Note that you do not need a paragraph here to intro Installation. It should be step-by-step.
-
-If your application has secret keys (for example -- Twilio), make sure you tell them how to set that up, both in getting the key and then what to call it in the .env file.
-
-1. Create a database named your database name,
-2. The queries in the tables.sql file are set up to create all the necessary tables and populate the needed data to allow the application to run correctly. The project is built on Postgres, so you will need to make sure to have that installed. We recommend using Postico to run those queries as that was used to create the queries,
+1. Create a database named weekend-to-do-list,
+2. The queries in the database.sql file are set up to create all the necessary tables and populate the needed data to allow the application to run correctly. The project is built on Postgres, so you will need to make sure to have that installed. We recommend using Postico to run those queries as that was used to create the queries,
 3. Open up your editor of choice and run an npm install
-4. Run npm run server in your terminal
-5. Run npm run client in your terminal
-6. The npm run client command will open up a new browser tab for you!
+4. Run npm start in your terminal
+5. Open localhost:5000 in browser of choice including view developer tools javascript console to interact with the application
 
 ## Usage
 
 To use this application:
 
-1.
-2.
-3.
-
-1. User inputs a number
-2. User selects a mathmatical operator
-3. User selects a second number
-4. User clicks the '=' button to generate the equation total which appears below the first value input box. A calculation history including all elements of the equation will also populate below the total. 
-5. User then clicks the 'C' button to clear the input feilds.
-6. Wash, rinse, repeat steps 1-5.
+1. User inputs a name, task, and date then clicks 'add task' button
+2. Once the task is complete User clicks button 'click when completed' which will change the color of the task row, remove the button, and display 'Task Completed!'
+3. User then has the option to click 'delete' button to remove the task from the list and DB.
 
 ## Built With
 

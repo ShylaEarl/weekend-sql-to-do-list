@@ -12,3 +12,9 @@ VALUES ('Shyla', 'Dishes', '10/17/2020'),
 ('Shyla', 'Sweep', '10/17/2020'),
 ('Shyla', 'Make Lunch', '10/17/2020'),
 ('Shyla', 'Complete Homework Assigment', '10/17/2020');
+
+SELECT * FROM "tasks";
+
+DELETE FROM "tasks" WHERE "id" = 4;
+
+UPDATE "tasks" SET "completed" = 'true' WHERE "id" = 4;
