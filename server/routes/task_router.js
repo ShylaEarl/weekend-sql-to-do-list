@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const pool = require('../modules/pool');
+var pool = require('../modules/pool.js'); //const pool
 
 // could add an object array with dummy data
 
