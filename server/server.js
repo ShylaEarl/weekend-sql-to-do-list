@@ -15,7 +15,7 @@ app.use('/taskList', taskRouter);
 
 
 // Start express
-const PORT = 5000;
+const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
     console.log('up and running on port', PORT);
 });
