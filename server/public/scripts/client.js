@@ -11,7 +11,7 @@ function onReady(){
 
 function getTasks(){
     console.log( 'in getTasks' );
-    $("#task-table").empty();
+    $("#task-display").empty();
     // ajax call to server to get tasks
     $.ajax({
       type: 'GET',
@@ -21,7 +21,7 @@ function getTasks(){
       for(let i = 0; i < response.length; i += 1) {
         let task = response[i];
         // For each task, append a new row to the table
-        $('#task-table').append(`
+        $('#task-display').append(`
           <tr>
             <td>${task.name}</td>
             <td>${task.task}</td>

@@ -1,10 +1,28 @@
 body{
-    background-color: lightseagreen;
+    background-color: khaki;
+    margin: 0;
 }
 
-table th, td{
+h1{
+    padding: 1rem;
+}
+
+#input-fields{
+    padding: 1rem;
+}
+
+#task-table {
     border: 1px solid black;
     border-collapse: collapse;
+    margin: 1rem;
+}
+
+table th{
+    border: 2px solid black;
+}
+
+table td{
+    border: 1px solid black;
 }
 
 footer{

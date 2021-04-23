@@ -14,8 +14,15 @@
         <h1>Weekend Sql ToDo List</h1>
     </header>
     <main>
-        <h2>Insert Main UI content Below!</h2>
-        <table>
+        <div id="input-fields">
+            <h2>My Weekend To Do List</h2>
+            <input id="nameIn" type="text" placeholder="Name"></input>
+            <input id="taskIn" type="text" placeholder="Task"></input>
+            <input id="dateIn" type="date" placeholder="Date"></input>
+            <button id="submit-button">Add Task To List</button>
+        </div>
+        <br>
+        <table id="task-table">
             <thead>
                 <tr>
                     <th>name</th>
@@ -25,7 +32,7 @@
                     <th>delete</th>
                 </tr>
             </thead>
-            <tbody id="task-table">
+            <tbody id="task-display">
                 <tr>
                     <td></td>
                 </tr>
