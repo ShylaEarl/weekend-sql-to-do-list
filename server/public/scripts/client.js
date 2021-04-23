@@ -6,6 +6,7 @@ function onReady(){
     console.log('jQ');
     //call to get tasks from database and append to DOM on page load
     getTasks();
+    $('#submit-button').on('click', addTask);
 
 }//end onReady
 
@@ -36,3 +37,25 @@ function getTasks(){
       console.log('error in GET', error);
     });
   } // end getTasks
+
+  function addTask(taskToAdd){
+    console.log('Submit button clicked.');
+    let task = {};
+    task.name = $('#nameIn').val();
+    task.task = $('#taskIn').val();
+    task.date = $('#dateIn').val();
+    $.ajax({
+        type: 'POST',
+        url: '/tasks',
+        data: task,
+        }).then(function(response) {
+          console.log('Response from server.', response);
+          getTasks();
+        }).catch(function(error) {
+          console.log('Error in POST', error)
+          alert('Unable to add a task at this time. Please try again later.');
+    });
+    $('#nameIn').val('');
+    $('#taskIn').val('');
+    $('#dateIn').val('');
+  }//end addTasks
