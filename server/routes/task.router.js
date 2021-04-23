@@ -37,5 +37,20 @@ taskRouter.post('/',  (req, res) => {
 //PUT
 
 //DELETE
+taskRouter.delete('/:id', (req, res) => {
+    let reqID = req.params.id;
+    console.log('Delete request id', reqID);
+    
+    let sqlText = 'DELETE FROM "tasks" WHERE "id"=$1;';
+    pool.query(sqlText, [reqID])
+    .then((result) => {
+    console.log('Task Deleted');
+    res.sendStatus(200);
+    })
+    .catch((error) => {
+    console.log(`Error making database query ${sqlText}`, error);
+    res.sendStatus(500);
+    });
+});
 
 module.exports = taskRouter;

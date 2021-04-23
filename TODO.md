@@ -1,9 +1,9 @@
 TODO
 - [] front end UI
-    -[] user creates a task
-- [] task should be stored in DB
-- [] render an updated task list to DOM each time a task is created
-- [] each task has a 'Complete' and 'Delete' option
+    -[x] user creates a task
+- [x] task should be stored in DB
+- [x] render an updated task list to DOM each time a task is created
+- [x] each task has a 'Complete' and 'Delete' option
 - [] Upon completetion, change visual representation of task on DOM
 - [] Upon completetion, 'check off' completion of task
 - [] Store task completion in DB (update boolean feild)

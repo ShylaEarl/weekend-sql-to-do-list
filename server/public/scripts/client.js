@@ -7,11 +7,11 @@ function onReady(){
     //call to get tasks from database and append to DOM on page load
     getTasks();
     $('#submit-button').on('click', addTask);
-
+    $('#task-display').on('click', '.remove-task', deleteTaskHandler);
 }//end onReady
 
 function getTasks(){
-    console.log( 'in getTasks' );
+    //console.log( 'in getTasks' );
     $("#task-display").empty();
     // ajax call to server to get tasks
     $.ajax({
@@ -36,9 +36,9 @@ function getTasks(){
     }).catch(function(error){
       console.log('error in GET', error);
     });
-  } // end getTasks
+} // end getTasks
 
-  function addTask(taskToAdd){
+function addTask(taskToAdd){
     console.log('Submit button clicked.');
     let task = {};
     task.name = $('#nameIn').val();
@@ -58,4 +58,22 @@ function getTasks(){
     $('#nameIn').val('');
     $('#taskIn').val('');
     $('#dateIn').val('');
-  }//end addTasks
+}//end addTasks
+
+//Deletes a task from DOM and DB 
+function deleteTask(taskId) {
+    $.ajax({
+      method: 'DELETE',
+      url: `/tasks/${taskId}`
+    })
+      .then(function (response) {
+        getTasks();
+      })
+      .catch(function (error) {
+        alert('Error trying to delete task.', error);
+      })
+  }
+  
+  function deleteTaskHandler() {
+    deleteTask($(this).data("id"));
+  }
