@@ -22,12 +22,16 @@ Use CSS styling to update page aesthetic beyond the vanilla HTML look:
 - [] Update README file, esp change how complete functionality works
 
 ## Stretch Goals
-For each of your strech goals, you will be practicing git branching. Please refer to the branching notes for a reminder on commands. Each branch will be merged into master using `--no-ff`. This will allow us to see that you branched your feature when you turn in your code.
+-[x] For each of your strech goals, you will be practicing git branching. 
+-[] Each branch will be merged into master using `--no-ff`. This will allow us to see that you branched your feature when you turn in your code.
+
+- `feature-compeleteToggle`
+    - [] add the ability to toggle complete button between completed/not completed and create a visual change on DOM
 
 - `feature-styling-bootstrap` 
 
     - [x]  Add Bootstrap to the front end and style it up!
-      - []  Buttons -- make the creation buttons and completion buttons green and the delete red.
+      - [x]  Buttons -- make the creation buttons and completion buttons green and the delete red.
       - [] Inputs -- make your text inputs styled in the bootstrap way
       - [] Responsive -- make your app responsive to different screen sizes -- check out the [Layout](https://getbootstrap.com/docs/4.1/layout/overview/) section
 
