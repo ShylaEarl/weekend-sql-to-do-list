@@ -8,9 +8,9 @@ function onReady(){
     getTasks();
     //clicking submit button adds a new task to DOM and DB
     $('#submit-button').on('click', addTask);
-    //on click of a specific delete button, remove that task
-    $('#task-display').on('click', '.remove-task', deleteTaskHandler);
-    //on click of a specific completed button, update task to completed
+    //on click of a specific delete button, remove that task from DOM and DB
+    $('#task-display').on('click', '.remove-task', deleteTaskHandler);  //deleteAlert
+    //on click of a specific completed button, update task to completed on DOM and DB
     $('#task-display').on('click', '.task-complete', completeTaskHandler);
 }//end onReady
 
@@ -124,6 +124,23 @@ function deleteTask(taskId) {
 }//end deleteTask
 
 //captures id of specific task to be deleted and calls deleteTask with that id
+//once the user has been alerted of and reconfirms delete
 function deleteTaskHandler() {
-    deleteTask($(this).data("id"));
+  swal({ 
+    title: "Hello Friend!",
+    text: "Are you sure you want to delete this task?",
+    buttons: {
+      cancel: true,
+      confirm: "Delete" 
+    }
+  }).then(val => {
+    if(val){
+      swal({
+        title: "Good Choice!",
+        text: "You've deleted your task.",
+      });
+      deleteTask($(this).data("id"));
+    }
+  }); 
 }//end deleteTaskHandler
+
