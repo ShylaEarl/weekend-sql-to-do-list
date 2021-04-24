@@ -1,11 +1,11 @@
 body{
-    background-color: #f4f1de;
+    background-color: #f2cc8f;
     margin: 0;
 }
 
 header{
     background-color: #e07a5f;
-
+    border-radius: 10px;
 }
 
 h1{
@@ -14,6 +14,18 @@ h1{
     text-shadow: 2px 2px #f4f1de;
     text-align: center;
     font-family: cursive;
+    border: double ;
+    border-radius: 10px;
+}
+
+main{
+    border: double;
+    border-radius: 10px;
+    padding-right: 3rem;
+    padding-bottom: 3rem;
+    margin: auto;
+    width: 75%;
+    background-color: #f4f1de;
 }
 
 h2{
@@ -25,14 +37,11 @@ h2{
 
 #input-fields{
     margin: auto;
-    width: 40%;
+    width: 50%;
     padding: 1rem;
 }
 
 #submit-button{
-    /* background-color: #f2cc8f; */
-    /* color: #f4f1de;
-    text-shadow: .50px .50px black; */
     background-color: #3d405b;
     color: #f4f1de;
     text-shadow: 1px 1px #e07a5f;
@@ -42,8 +51,7 @@ h2{
     border: 1px solid #3d405b;
     border-collapse: collapse;
     margin: auto;
-    width: 50%
-
+    width: 70%
 }
 
 table th{
@@ -86,4 +94,5 @@ footer{
     text-align: center;
     font-family: cursive;
     background-color: #e07a5f;
+    border-radius: 10px;
 }

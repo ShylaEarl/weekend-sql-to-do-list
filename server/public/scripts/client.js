@@ -122,8 +122,8 @@ function deleteTask(taskId) {
     });
 }//end deleteTask
 
-//captures id of specific task to be deleted and calls deleteTask with that id
-//once the user has been alerted of and reconfirms delete
+//captures id of specific task and calls to delete it once the user 
+//has been alerted of and re/confirms delete
 function deleteTaskHandler() {
   swal({ 
     title: "Hello Friend!",
