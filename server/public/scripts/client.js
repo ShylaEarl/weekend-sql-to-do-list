@@ -44,7 +44,7 @@ function getTasks(){
                     <td>${task.name}</td>
                     <td>${task.task}</td>
                     <td>${task.date.slice(0,10)}</td>
-                    <td>Task Complete. Let's Go Party!</td>
+                    <td><button class="task-complete" data-id="${task.id}">Task Complete! Let's Party!</button></td>
                     <td><button class="remove-task" data-id="${task.id}">Delete Task</button></td>
                 </tr>
             `);
@@ -63,6 +63,10 @@ function addTask(taskToAdd){
     task.name = $('#nameIn').val();
     task.task = $('#taskIn').val();
     task.date = $('#dateIn').val();
+    //input validation, checking that all fields are filled
+    if($('#nameIn').val() === '' || $('#taskIn').val() === '' || $('#dateIn').val() === ''){
+      alert('Please fill in all fields.')
+    }else{
     $.ajax({
       type: 'POST',
       url: '/tasks',
@@ -79,6 +83,7 @@ function addTask(taskToAdd){
     $('#nameIn').val('');
     $('#taskIn').val('');
     $('#dateIn').val('');
+    }//end conditional
 }//end addTasks
 
 //updates a task to show it's been completed
