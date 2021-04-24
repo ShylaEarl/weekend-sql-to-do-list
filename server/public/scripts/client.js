@@ -44,7 +44,7 @@ function getTasks(){
                     <td>${task.name}</td>
                     <td>${task.task}</td>
                     <td>${task.date.slice(0,10)}</td>
-                    <td><button class="task-complete" data-id="${task.id}">Task Complete! Let's Party!</button></td>
+                    <td class="celebrate">Task Complete! Let's Party!</td>
                     <td><button class="remove-task" data-id="${task.id}">Delete Task</button></td>
                 </tr>
             `);

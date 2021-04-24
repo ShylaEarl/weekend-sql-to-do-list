@@ -67,6 +67,11 @@ table td{
     background-color: #f2cc8f;
 }
 
+.celebrate{
+    font-size: large;
+    text-shadow: 1px 1px #e07a5f;
+}
+
 .remove-task{
     background-color: #e07a5f;
     color: #f4f1de;
