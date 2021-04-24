@@ -9,13 +9,13 @@ function onReady(){
     //clicking submit button adds a new task to DOM and DB
     $('#submit-button').on('click', addTask);
     //on click of a specific delete button, remove that task from DOM and DB
-    $('#task-display').on('click', '.remove-task', deleteTaskHandler);  //deleteAlert
+    $('#task-display').on('click', '.remove-task', deleteTaskHandler);
     //on click of a specific completed button, update task to completed on DOM and DB
     $('#task-display').on('click', '.task-complete', completeTaskHandler);
 }//end onReady
 
 function getTasks(){
-    //console.log( 'in getTasks' );
+    //empties task table rows to prevent repeating on DOM
     $("#task-display").empty();
     // ajax call to server to get tasks
     $.ajax({
@@ -57,7 +57,6 @@ function getTasks(){
 } // end getTasks
 
 function addTask(taskToAdd){
-    console.log('Submit button clicked.');
     //new object to hold user input values from DOM to send to server/DB
     let task = {};
     task.name = $('#nameIn').val();
@@ -65,7 +64,7 @@ function addTask(taskToAdd){
     task.date = $('#dateIn').val();
     //input validation, checking that all fields are filled
     if($('#nameIn').val() === '' || $('#taskIn').val() === '' || $('#dateIn').val() === ''){
-      alert('Please fill in all fields.')
+      alert('Please fill in all fields.');
     }else{
     $.ajax({
       type: 'POST',
