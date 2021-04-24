@@ -21,23 +21,37 @@ function getTasks(){
     $.ajax({
       type: 'GET',
       url: '/tasks'
-    }).then(function(response) {
+    })
+    .then(function(response){
       console.log(response);
+      // For each task, append a new row to the table
       for(let i = 0; i < response.length; i += 1) {
         let task = response[i];
-        // For each task, append a new row to the table
-        $('#task-display').append(`
-          <tr>
-            <td>${task.name}</td>
-            <td>${task.task}</td>
-            <td>${task.date}</td>
-            <td><button class="task-complete" data-id="${task.id}">Completed!</button></td>
-            <td><button class="remove-task" data-id="${task.id}">Delete Task</button></td>
-          </tr>
-        `);
+        //boolean conditional to create visual change on DOM upon task completion
+        if(task.completed === false){
+            $('#task-display').append(`
+                <tr class="task-not-complete-row">
+                    <td>${task.name}</td>
+                    <td>${task.task}</td>
+                    <td>${task.date.slice(0,10)}</td>
+                    <td><button class="task-complete" data-id="${task.id}">Click To Complete Me!</button></td>
+                    <td><button class="remove-task" data-id="${task.id}">Delete Task</button></td>
+                </tr>
+            `);
+        }else{
+            $('#task-display').append(`
+                <tr class="task-complete-row">
+                    <td>${task.name}</td>
+                    <td>${task.task}</td>
+                    <td>${task.date.slice(0,10)}</td>
+                    <td>Task Complete. Let's Go Party!</td>
+                    <td><button class="remove-task" data-id="${task.id}">Delete Task</button></td>
+                </tr>
+            `);
+        }//end conditional
       }//end for loop
-      //renderTasks(response);
-    }).catch(function(error){
+    })
+    .catch(function(error){
       console.log('error in GET', error);
     });
 } // end getTasks

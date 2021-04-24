@@ -1,24 +1,51 @@
 # Project Name
 
-[Project Instructions](./INSTRUCTIONS.md), this line may be removed once you have updated the README.md
+Weekend SQL To-Do List
 
 ## Description
 
-Your project description goes here. What problem did you solve? How did you solve it?
+Duration: Weekend Challenge
 
-Additional README details can be found [here](https://github.com/PrimeAcademy/readme-template/blob/master/README.md).
+This project allows a user to input tasks into an application and have those tasks listed on the DOM. Once the task is completed the user has the option to click a complete task button to indicate that the task has been completed. The user also has an option to delete the task from the list at any point in time.
 
-# PROJECT NAME
+The problem solved by this project is the creation of a to do list. This project solves this problem by allowing the user to enter task data which will be displayed on the DOM. The user can interact with listed tasks by clicking a task completed button or delete button. 
 
-## Description
+## Prerequisites
 
-_Duration: 2 Week Sprint_
+    JQuery
+    Node
+    Express
+    SQL
 
-Directly above this is how long it took you to develop the project. Your project description goes here. What problem did you solve? How did you solve it? 
+## Installation
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed aliquam at massa in faucibus. Etiam volutpat, risus non mollis convallis, velit nisi pulvinar mi, eu faucibus orci nisi eget nibh. Integer a velit pretium, volutpat arcu eleifend, fringilla elit. Cras erat sapien, convallis venenatis tellus vitae, feugiat dictum felis.
+1. Create a database named weekend-to-do-list,
+2. The queries in the database.sql file are set up to create all the necessary tables and populate the needed data to allow the application to run correctly. The project is built on Postgres, so you will need to make sure to have that installed. We recommend using Postico to run those queries as that was used to create the queries.
+3. Open up your editor of choice and run an npm install
+4. Run npm start in your terminal
+5. Open localhost:5000 in browser of choice including view developer tools javascript console to interact with the application
 
-Suspendisse euismod volutpat aliquet. Maecenas vulputate mauris in pellentesque facilisis. Phasellus varius malesuada semper. Cras sollicitudin diam mollis maximus aliquam.
+## Usage
+
+To use this application:
+
+1. User inputs a name, task, and date then clicks 'add task' button
+2. Once the task is complete User clicks button 'click when completed' which will change the color of the task row, remove the button, and display 'Task Completed!'
+3. User then has the option to click 'delete' button to remove the task from the list and DB.
+
+## Built With
+
+List technologies and frameworks here
+
+## Acknowledgement
+
+Thanks to Prime Digital Academy who equipped and helped me to make this application a reality. 
+
+## Support
+
+If you have suggestions or issues, please email me at shyla.earl@gmail.com
+
+//////***********REMOVE BELOW*******///////////
 
 To see the fully functional site, please visit: [DEPLOYED VERSION OF APP](www.heroku.com)
 
@@ -46,28 +73,3 @@ If your application has secret keys (for example --  Twilio), make sure you tell
 5. Run `npm run client` in your terminal
 6. The `npm run client` command will open up a new browser tab for you!
 
-## Usage
-How does someone use this application? Tell a user story here.
-
-1. xxx
-2. xxx
-3. xxx
-4. xxx
-5. xxx
-6. xxx
-
-
-## Built With
-
-List technologies and frameworks here
-
-## License
-[MIT](https://choosealicense.com/licenses/mit/)
-
-_Note, include this only if you have a license file. GitHub will generate one for you if you want!_
-
-## Acknowledgement
-Thanks to [Prime Digital Academy](www.primeacademy.io) who equipped and helped me to make this application a reality. (Thank your people)
-
-## Support
-If you have suggestions or issues, please email me at [youremail@whatever.com](www.google.com)
