@@ -12,9 +12,9 @@ TODO
 
 Use CSS styling to update page aesthetic beyond the vanilla HTML look:
   - [x] background color of the page
-  - [] all table CSS
-  - [] font family and size
-  - [] text color & or background color of tasks *to show whether or not they have been completed*
+  - [x] all table CSS
+  - [x] font family and size
+  - [x] text color & or background color of tasks *to show whether or not they have been completed*
 
 - [x] Create a Database using naming convention `weekend-to-do-app`
 - [x] create a `database.sql` file with all `CREATE TABLE` queries.

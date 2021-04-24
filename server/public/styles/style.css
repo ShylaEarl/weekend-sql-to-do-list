@@ -3,23 +3,47 @@ body{
     margin: 0;
 }
 
+header{
+    background-color: #e07a5f;
+
+}
+
 h1{
     padding: 1rem;
     color: #3d405b;
+    text-shadow: 2px 2px #f4f1de;
+    text-align: center;
+    font-family: cursive;
 }
 
 h2{
     color: #3d405b;
+    font-family: Courier New, monospace;
+    text-align: center;
+    text-shadow: 1px 1px #e07a5f;
 }
 
 #input-fields{
+    margin: auto;
+    width: 40%;
     padding: 1rem;
+}
+
+#submit-button{
+    /* background-color: #f2cc8f; */
+    /* color: #f4f1de;
+    text-shadow: .50px .50px black; */
+    background-color: #3d405b;
+    color: #f4f1de;
+    text-shadow: 1px 1px #e07a5f;
 }
 
 #task-table {
     border: 1px solid #3d405b;
     border-collapse: collapse;
-    margin: 1rem;
+    margin: auto;
+    width: 50%
+
 }
 
 table th{
@@ -29,14 +53,24 @@ table th{
 
 table td{
     border: 1px solid #3d405b;
+    text-align: center;
+    padding: 1rem
 }
 
-/* tr:nth-child(even){
-    background-color: white;
-}  */
+.task-complete{
+    background-color: #81b29a;
+    color: #f4f1de;
+    text-shadow: 1px 1px #3d405b;
+}
 
 .task-complete-row{
     background-color: #81b29a;
+}
+
+.remove-task{
+    background-color: #e07a5f;
+    color: #f4f1de;
+    text-shadow: 1px 1px #3d405b; 
 }
 
 footer{
@@ -45,5 +79,6 @@ footer{
     width: 100%;
     height: 3rem;
     text-align: center;
-    color: #3d405b;
+    font-family: cursive;
+    background-color: #e07a5f;
 }
