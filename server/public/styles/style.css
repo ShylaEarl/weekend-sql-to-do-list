@@ -1,5 +1,5 @@
 body{
-    background-color: #f2cc8f;
+    background-color: lightgrey;
     margin: 0;
 }
 
@@ -26,6 +26,7 @@ main{
     margin: auto;
     width: 75%;
     background-color: #f4f1de;
+    margin-bottom: 2rem;
 }
 
 h2{
@@ -86,7 +87,25 @@ table td{
     text-shadow: 1px 1px #3d405b; 
 }
 
-footer{
+.footer{
+    text-align: center;
+    font-family: cursive;
+    background-color: #e07a5f;
+    border-radius: 10px;
+    border: double;
+}
+
+.mt-auto{
+    margin-top: auto;
+}
+
+.py-3{
+    padding-bottom: 1rem;
+    padding-top: 1rem;
+}
+
+
+/* footer{
     position: absolute;
     bottom: 0;
     width: 100%;
@@ -95,4 +114,4 @@ footer{
     font-family: cursive;
     background-color: #e07a5f;
     border-radius: 10px;
-}
+} */

@@ -64,7 +64,7 @@ function addTask(taskToAdd){
     task.date = $('#dateIn').val();
     //input validation, checking that all fields are filled
     if($('#nameIn').val() === '' || $('#taskIn').val() === '' || $('#dateIn').val() === ''){
-      alert('Please fill in all fields.');
+      swal('Hi Friend! You forgot something.', 'Please fill in all fields.');
     }else{
     $.ajax({
       type: 'POST',
@@ -126,7 +126,7 @@ function deleteTask(taskId) {
 //has been alerted of and re/confirms delete
 function deleteTaskHandler() {
   swal({ 
-    title: "Hello Friend!",
+    title: "Hi Friend!",
     text: "Are you sure you want to delete this task?",
     buttons: {
       cancel: true,
