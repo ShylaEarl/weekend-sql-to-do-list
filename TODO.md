@@ -18,7 +18,7 @@ Use CSS styling to update page aesthetic beyond the vanilla HTML look:
 - [x] Create a Database using naming convention `weekend-to-do-app`
 - [x] create a `database.sql` file with all `CREATE TABLE` queries.
 
-- [] Update README file, esp change how complete functionality works (I added this, was not included in original assignment)
+- [x] Update README file, esp change how complete functionality works (I added this, was not included in original assignment)
 
 ## Stretch Goals
 -[x] For each of your strech goals, you will be practicing git branching.
@@ -28,9 +28,12 @@ Use CSS styling to update page aesthetic beyond the vanilla HTML look:
 - `feature-styling-bootstrap` 
 
     - [x]  Add Bootstrap to the front end and style it up!
+    I commented out the html link after experimenting with bootstrap because I prefered my original styling to BS. However, moving forward I am intersted in starting a project with BS and styling from that start point. 
       - [x]  Buttons -- make the creation buttons and completion buttons green and the delete red.
-      - [] Inputs -- make your text inputs styled in the bootstrap way
-      - [] Responsive -- make your app responsive to different screen sizes -- check out the [Layout](https://getbootstrap.com/docs/4.1/layout/overview/) section
+      - [x] Inputs -- make your text inputs styled in the bootstrap way
+        I experimented with this and didn't like it so I changed it back. 
+      - [x] Responsive -- make your app responsive to different screen sizes -- check out the [Layout](https://getbootstrap.com/docs/4.1/layout/overview/) section
+      I experimented with this, but my app was already using responsive styling in my css file which I prefered so I changed it back.
 
 - `feature-confirm-delete`
 
@@ -48,4 +51,4 @@ Use CSS styling to update page aesthetic beyond the vanilla HTML look:
     
 - `feature-time-completed` 
 
-    - [ ]  Add the ability to record when a task was completed. Show the completed date on the frontend in a pretty format.
+    - [ ]  Add the ability to record when a task was completed. Show the completed date on the frontend in a pretty format. 

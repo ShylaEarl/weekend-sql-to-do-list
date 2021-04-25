@@ -19,7 +19,7 @@ h1{
 }
 
 main{
-    border: double;
+    border: double ;
     border-radius: 10px;
     padding-right: 3rem;
     padding-bottom: 3rem;
@@ -57,7 +57,7 @@ h2{
 
 table th{
     border: 2px solid #3d405b;
-    background-color: #81b29a;
+    background-color: lightgrey;
 }
 
 table td{
@@ -65,6 +65,14 @@ table td{
     text-align: center;
     padding: 1rem
 }
+
+/* tr:hover{
+    background-color: lightgrey;
+}
+
+tr:nth-child(even){
+    background-color: lightgrey;
+} */
 
 .task-complete{
     background-color: #81b29a;
@@ -103,7 +111,6 @@ table td{
     padding-bottom: 1rem;
     padding-top: 1rem;
 }
-
 
 /* footer{
     position: absolute;
