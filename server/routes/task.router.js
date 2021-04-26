@@ -6,8 +6,8 @@ const pool = require('../modules/pool');
 
 //GET
 taskRouter.get('/', (req, res) => {
-    let queryText = 'SELECT * FROM "tasks" ORDER BY "id" DESC;';  //'SELECT * FROM "tasks";'
-    pool.query(queryText)
+  let queryText = 'SELECT * FROM "tasks" ORDER BY "id" DESC;';  //'SELECT * FROM "tasks";'
+  pool.query(queryText)
     .then(result => {
       // Sends back the results in an object
       res.send(result.rows);
@@ -19,13 +19,13 @@ taskRouter.get('/', (req, res) => {
 });
 
 //POST
-taskRouter.post('/',  (req, res) => {
-    let newTask = req.body;
-    console.log(`Adding task`, newTask);
-  
-    let queryText = `INSERT INTO "tasks" ("name", "task", "date")
+taskRouter.post('/', (req, res) => {
+  let newTask = req.body;
+  console.log(`Adding task`, newTask);
+
+  let queryText = `INSERT INTO "tasks" ("name", "task", "date")
                      VALUES ($1, $2, $3);`;
-    pool.query(queryText, [newTask.name, newTask.task, newTask.date])
+  pool.query(queryText, [newTask.name, newTask.task, newTask.date])
     .then(result => {
       res.sendStatus(201);
     })
@@ -37,10 +37,10 @@ taskRouter.post('/',  (req, res) => {
 
 //PUT
 taskRouter.put('/:id', (req, res) => {
-    let taskId = req.params.id;
-    let sqlText = `UPDATE "tasks" SET "completed" = 'True' WHERE "id"=$1;`;
-  
-    pool.query(sqlText, [taskId])
+  let taskId = req.params.id;
+  let sqlText = `UPDATE "tasks" SET "completed" = 'True' WHERE "id"=$1;`;
+
+  pool.query(sqlText, [taskId])
     .then(response => {
       console.log('You completed a Task!');
       res.sendStatus(201);
@@ -53,11 +53,11 @@ taskRouter.put('/:id', (req, res) => {
 
 //DELETE
 taskRouter.delete('/:id', (req, res) => {
-    let reqID = req.params.id;
-    console.log('Delete request id', reqID);
-    
-    let sqlText = 'DELETE FROM "tasks" WHERE "id"=$1;';
-    pool.query(sqlText, [reqID])
+  let reqID = req.params.id;
+  console.log('Delete request id', reqID);
+
+  let sqlText = 'DELETE FROM "tasks" WHERE "id"=$1;';
+  pool.query(sqlText, [reqID])
     .then((result) => {
       console.log('Task Deleted');
       res.sendStatus(200);
